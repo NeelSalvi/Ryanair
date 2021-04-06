@@ -4,16 +4,25 @@
   "description": "Automated Test in Cucumber.js",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js"
   },
-  "author": "",
+  "keywords": [
+  ],
+  "author": "Neel Salvi",
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^7.1.0"
   },
   "dependencies": {
     "selenium-webdriver": "^4.0.0-beta.2",
+    "require": "2.4.20",
     "bufferutil": "^4.0.3",
     "utf-8-validate": "^5.0.4"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "7.1.0",
+    "chai": "4.3.4",
+    "chromedriver": "^89.0.0",
+    "cucumber-html-reporter": "5.4.0",
+    "selenium-webdriver": "4.0.0-beta.2"
   }
 }
