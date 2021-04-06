@@ -1,0 +1,19 @@
+{
+  "name": "ryanair",
+  "version": "1.0.0",
+  "description": "Automated Test in Cucumber.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.1.0"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-beta.2",
+    "bufferutil": "^4.0.3",
+    "utf-8-validate": "^5.0.4"
+  }
+}
