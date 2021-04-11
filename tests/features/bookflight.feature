@@ -6,7 +6,7 @@ Feature: Booking a flight on www.ryanair.ie/en
   Scenario: Booking up to a declined payment on
 		Given I am on main page
         # And I log in to personal account
-		When I make a search for booking from 'Wroclaw' to 'Dublin' on '29/06/2018' for 2 adults and 1 child
+		When I make a search for booking from 'Dublin' to 'Amsterdam' on '29/06/2018' for 2 adults and 1 child
 		And I book available flight
 		And I select seats for 3 passengers
 		And I checkout my booking

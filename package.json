@@ -4,7 +4,7 @@
   "description": "Automated Test in Cucumber.js",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/cucumber-js tests/features --require tests/features/support --require tests/features/step_definitions --world-parameters {\\\"browserName\\\":\\\"chrome\\\"} --format json:tests/results/chrome.json",
+    "test": "./node_modules/.bin/cucumber-js tests/features --require tests/features/support --require tests/features/step_definitions/*.js --world-parameters {\\\"browserName\\\":\\\"chrome\\\"} --format json:tests/results/chrome.json",
     "testReport": "node ./tests/features/support/generateReport"
   },
   "keywords": [
