@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Automated Test in Cucumber.js",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NeelSalvi/Ryanair.git"
+  },
   "scripts": {
     "test": "./node_modules/.bin/cucumber-js tests/features --require tests/features/support --require tests/features/step_definitions/*.js --world-parameters {\\\"browserName\\\":\\\"chrome\\\"} --format json:tests/results/chrome.json",
     "testReport": "node ./tests/features/support/generateReport"
