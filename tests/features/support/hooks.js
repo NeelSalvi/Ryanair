@@ -12,6 +12,7 @@ const chrome = require('selenium-webdriver/chrome')
 const chromedriver = require('chromedriver')
 
 chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build())
+setDefaultTimeout(30 * 1000)
 
 const RESULTS_FOLDER_PATH = './tests/results'
 const APP_URL = 'https://www.ryanair.com/ie/en'

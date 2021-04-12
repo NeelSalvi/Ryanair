@@ -1,0 +1,6 @@
+{
+    "cucumber-quick": {
+    "tool": "cucumberjs",
+    "script": "npx cucumber-js tests/features --require tests/features/support --require tests/features/step_definitions/*.js --world-parameters {\\\"browserName\\\":\\\"chrome\\\"} --format json:tests/results/chrome.json"
+  }
+}

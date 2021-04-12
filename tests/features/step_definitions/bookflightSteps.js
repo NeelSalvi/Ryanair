@@ -19,11 +19,12 @@ Given('I am on main page', async function () {
   )
 })
 When(
-  'I make a search for booking from {string} to {string} on {string} for {int} adults and {int} child',
+  'I make a search for booking from {string} to {string} on {string} to {string} for {int} adults and {int} child',
   async function (
     departure,
     destination,
-    date,
+    fromDate,
+    toDate,
     noPassengersAdult,
     noPassengersChild
   ) {
@@ -32,19 +33,32 @@ When(
       async () => await homePage.getDepartureTextbox(),
       timeouts.STEP_TIMEOUTS.TIMEOUT
     )
-    // const departure = await homePage.getDepartureTextbox()
-    // const destination = await homePage.getDestinationTextbox()
-    // assert.exists(departure)
-    // assert.exists(destination)
-    homePage.enterDeparture(departure)
-    homePage.enterDestination(destination)
-    const a = 10
+    await homePage.enterDeparture(departure)
+    await homePage.enterDestination(destination)
+    await homePage.search()
+    await homePage.enterFromDate(fromDate)
+    await homePage.enterToDate(toDate)
+    await homePage.enterPassengers(noPassengersAdult, noPassengersChild)
+    await homePage.search()
   }
 )
 
-When('I book available flight', function () {
+When('I book available flight and login', async function () {
+  const flightSelectionPage = new FlightSelectionPage(this.driver)
+  await this.driver.wait(
+    async () => await flightSelectionPage.exists(),
+    timeouts.STEP_TIMEOUTS.TIMEOUT
+  )
+  await flightSelectionPage.selectFlightFareValue()
+  await flightSelectionPage.login()
+})
+
+When('I fill in passenger details', function (dataTable) {
+  const passengerData = dataTable.hashes()
+  const flightSelectionPage = new FlightSelectionPage(this.driver)
+  flightSelectionPage.fillPassengerDetails(passengerData)
   // Write code here that turns the phrase above into concrete actions
-  return 'pending'
+  // return 'pending'
 })
 
 When('I select seats for {int} passengers', function (noPassengers) {
@@ -59,30 +73,6 @@ When('I checkout my booking', function () {
 })
 
 When(
-  'I fill in adult passenger details {string}, {string} and {string}',
-  function (prefix, fname, lname) {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending'
-  }
-)
-
-When(
-  'I fill in second adult passenger details {string}, {string} and {string}',
-  function (prefix, fname, lname) {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending'
-  }
-)
-
-When(
-  'I fill in child passenger details {string} and {string}',
-  function (fname, lname) {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending'
-  }
-)
-
-When(
   'I fill in contact details country {string} and phone number {string}',
   function (country, phnumber) {
     // Write code here that turns the phrase above into concrete actions
@@ -91,8 +81,8 @@ When(
 )
 
 When(
-  'I fill in card details {string}, {string}, {string}/{string}, {string} and {string}',
-  function (cardNo, cardType, expMonth, expYear, cvv, cardName) {
+  'I fill in card details {string}, {string}, {string}, {string} and {string}',
+  function (cardNo, cardType, expMonthAndYear, cvv, cardName) {
     // Write code here that turns the phrase above into concrete actions
     return 'pending'
   }

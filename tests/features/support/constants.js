@@ -1,15 +1,19 @@
 'use strict'
 
 const CONSTANTS = {
-
   STEP_TIMEOUTS: {
-    TIMEOUT: 3000
+    TIMEOUT: 6000,
   },
 
   HOOK_TIMEOUTS: {
-    BEFORE: 5000,
-    AFTER: 5000
-  }
-};
+    BEFORE: 6000,
+    AFTER: 6000,
+  },
 
-module.exports = CONSTANTS;
+  ELEMENT_TIMEOUT: {
+    TIMEOUT: 20000,
+    RM_TIMEOUT: 10000,
+  },
+}
+
+module.exports = CONSTANTS
